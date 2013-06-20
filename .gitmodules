@@ -1,0 +1,18 @@
+[submodule "Parsley-Core"]
+	path = Parsley-Core
+	url = https://github.com/KapIT/Parsley-Core.git
+[submodule "Parsley-Flash-Resources"]
+	path = Parsley-Flash-Resources
+	url = https://github.com/KapIT/Parsley-Flash-Resources.git
+[submodule "Parsley-Popup"]
+	path = Parsley-Popup
+	url = https://github.com/KapIT/Parsley-Popup.git
+[submodule "Parsley-Logging-Tags"]
+	path = Parsley-Logging-Tags
+	url = https://github.com/KapIT/Parsley-Logging-Tags.git
+[submodule "Parsley-XML"]
+	path = Parsley-XML
+	url = https://github.com/KapIT/Parsley-XML.git
+[submodule "Parsley-Flex"]
+	path = Parsley-Flex
+	url = https://github.com/KapIT/Parsley-Flex.git
