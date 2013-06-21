@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.spicefactory.parsley</groupId>
+    <artifactId>parsley</artifactId>
+    <version>3.0.1-SNAPSHOT</version>
+    <name>${project.groupId} ${project.artifactId} ${project.version}</name>
+    <description>${project.groupId} ${project.artifactId} ${project.version}</description>
+    <packaging>pom</packaging>
+
+    <modules>
+    	<module>Parsley-Core</module>
+    	<!-- based on legacy task framework, unsupported -->
+    	<!--  <module>Parsley-Flash-Resources</module> -->
+    	<!--TODO Parsley-Logging-Tags -->
+    	<module>Parsley-Flex</module>
+    	<module>Parsley-Popup</module>
+    	<module>Parsley-XML</module>
+    </modules>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Kap IT</name>
+        <url>http://labs.kapit.fr/</url>
+    </organization>
+
+    <issueManagement>
+        <url>https://github.com/KapIT/Parsley/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
+    <scm>
+        <url>https://github.com/KapIT/Parsley</url>
+        <connection>scm:git:git://github.com/KapIT/Parsley.git</connection>
+        <!--<developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection>-->
+    </scm>
+
+
+    <developers>
+        <developer>
+            <name>Jens Halm</name>
+            <url>https://github.com/jenshalm</url>
+            <id>jenshalm</id>
+            <roles>
+                <role>Author</role>
+            </roles>
+        </developer>
+        <developer>
+            <email>fdecampredon@kapit.fr</email>
+            <name>François de Campredon</name>
+            <url>http://francois.de-campredon.fr</url>
+            <id>fdecampredon</id>
+        </developer>
+    </developers>
+
+
+    <properties>
+        <!-- dependency version -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flex.sdk.version>4.5.1.21328</flex.sdk.version>
+        <flex-mojos.version>4.0-RC2</flex-mojos.version>
+        <player.version>10.2</player.version>
+        <flex-debug>true</flex-debug>
+        <flex-optimize>false</flex-optimize>
+        <flex-verbose-stacktraces>true</flex-verbose-stacktraces>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>${flex.sdk.version}</version>
+            <type>pom</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.spicefactory.lib</groupId>
+		    <artifactId>spicelib</artifactId>
+		    <version>3.1.1-SNAPSHOT</version>
+            <type>pom</type>
+        </dependency>
+        
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-as3</artifactId>
+			<version>1.1</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>4.1-RC2</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+    </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>sonatype-flexmojos</id>
+            <name>Sonatype FlexMojos repository</name>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype-flexmojos</id>
+            <name>Sonatype FlexMojos repository</name>
+            <url>https://repository.sonatype.org/content/groups/flexgroup/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+</project>

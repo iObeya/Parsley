@@ -1,9 +1,6 @@
 [submodule "Parsley-Core"]
 	path = Parsley-Core
 	url = https://github.com/KapIT/Parsley-Core.git
-[submodule "Parsley-Flash-Resources"]
-	path = Parsley-Flash-Resources
-	url = https://github.com/KapIT/Parsley-Flash-Resources.git
 [submodule "Parsley-Popup"]
 	path = Parsley-Popup
 	url = https://github.com/KapIT/Parsley-Popup.git
