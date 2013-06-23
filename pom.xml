@@ -12,9 +12,8 @@
 
     <modules>
     	<module>Parsley-Core</module>
-    	<!-- based on legacy task framework, unsupported -->
-    	<!--  <module>Parsley-Flash-Resources</module> -->
-    	<!--TODO Parsley-Logging-Tags -->
+    	<module>Parsley-Logging-Flex</module>
+    	<module>Parsley-Logging-SpiceLib</module>
     	<module>Parsley-Flex</module>
     	<module>Parsley-Popup</module>
     	<module>Parsley-XML</module>

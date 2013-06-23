@@ -4,12 +4,15 @@
 [submodule "Parsley-Popup"]
 	path = Parsley-Popup
 	url = https://github.com/KapIT/Parsley-Popup.git
-[submodule "Parsley-Logging-Tags"]
-	path = Parsley-Logging-Tags
-	url = https://github.com/KapIT/Parsley-Logging-Tags.git
 [submodule "Parsley-XML"]
 	path = Parsley-XML
 	url = https://github.com/KapIT/Parsley-XML.git
 [submodule "Parsley-Flex"]
 	path = Parsley-Flex
 	url = https://github.com/KapIT/Parsley-Flex.git
+[submodule "Parsley-Logging-SpiceLib"]
+	path = Parsley-Logging-SpiceLib
+	url = https://github.com/KapIT/Parsley-Logging-SpiceLib.git
+[submodule "Parsley-Logging-Flex"]
+	path = Parsley-Logging-Flex
+	url = https://github.com/KapIT/Parsley-Logging-Flex.git
