@@ -17,6 +17,7 @@
     	<module>Parsley-Flex</module>
     	<module>Parsley-Popup</module>
     	<module>Parsley-XML</module>
+    	<module>Parsley-Test</module>
     </modules>
 
     <licenses>

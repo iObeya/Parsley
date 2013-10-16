@@ -16,3 +16,6 @@
 [submodule "Parsley-Logging-Flex"]
 	path = Parsley-Logging-Flex
 	url = https://github.com/KapIT/Parsley-Logging-Flex.git
+[submodule "Parsley-Test"]
+	path = Parsley-Test
+	url = https://github.com/KapIT/Parsley-Test.git
