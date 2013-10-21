@@ -10,6 +10,21 @@
     <description>${project.groupId} ${project.artifactId} ${project.version}</description>
     <packaging>pom</packaging>
 
+	
+    <properties>
+        <flex.sdk.version>4.5.1.21328</flex.sdk.version>
+		<player.version>10.2</player.version>
+        <flex-debug>false</flex-debug>
+        <flex-optimize>true</flex-optimize>
+        <flex-verbose-stacktraces>true</flex-verbose-stacktraces>
+        <flex-mojos.version>4.0-RC2</flex-mojos.version>
+        <spicelib.version>3.1.1-SNAPSHOT</spicelib.version>
+        <cairngorm-popup.version>1.15</cairngorm-popup.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <internal.repository.location>file://${project.build.directory}/mvn-repository</internal.repository.location>
+        <github.global.server>github</github.global.server>
+    </properties>
+
     <modules>
     	<module>Parsley-Core</module>
     	<module>Parsley-Logging-Flex</module>
@@ -36,11 +51,15 @@
         <url>https://github.com/KapIT/Parsley/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
+    
+    
+    
 
     <scm>
         <url>https://github.com/KapIT/Parsley</url>
         <connection>scm:git:git://github.com/KapIT/Parsley.git</connection>
         <!--<developerConnection>scm:git:git@github.com:kevinsawicki/github-maven-example.git</developerConnection>-->
+        <!--<developerConnection>scm:svn:http://opensource.adobe.com/svn/opensource/cairngorm3/trunk</developerConnection>-->
     </scm>
 
 
@@ -60,31 +79,27 @@
             <id>fdecampredon</id>
         </developer>
     </developers>
+    
+    
+    <distributionManagement>
+	    <repository>
+		    <id>internal.releases.repo</id>
+		    <name>Temporary Staging Repository</name>
+		    <url>${internal.repository.location}/releases</url>
+	    </repository>
+	    <snapshotRepository>
+	    	<id>internal.snapshot.repo</id>
+	    	<url>${internal.repository.location}/snapshots</url>
+    	</snapshotRepository>
+	</distributionManagement>
 
 
-    <properties>
-        <!-- dependency version -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <flex.sdk.version>4.5.1.21328</flex.sdk.version>
-        <flex-mojos.version>4.0-RC2</flex-mojos.version>
-        <player.version>10.2</player.version>
-        <flex-debug>true</flex-debug>
-        <flex-optimize>false</flex-optimize>
-        <flex-verbose-stacktraces>true</flex-verbose-stacktraces>
-    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
             <artifactId>flex-framework</artifactId>
             <version>${flex.sdk.version}</version>
-            <type>pom</type>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.spicefactory.lib</groupId>
-		    <artifactId>spicelib</artifactId>
-		    <version>3.1.1-SNAPSHOT</version>
             <type>pom</type>
         </dependency>
         
@@ -104,30 +119,35 @@
 			<scope>test</scope>
 		</dependency>
     </dependencies>
-
-
-    <repositories>
-        <repository>
-            <id>sonatype-flexmojos</id>
-            <name>Sonatype FlexMojos repository</name>
-            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sonatype-flexmojos</id>
-            <name>Sonatype FlexMojos repository</name>
-            <url>https://repository.sonatype.org/content/groups/flexgroup/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
+    
+    
+    <build>
+	    <plugins>
+	        <plugin>
+	            <groupId>com.github.github</groupId>
+	            <artifactId>site-maven-plugin</artifactId>
+	            <version>0.8</version>
+	            <configuration>
+	                <message>Maven artifacts for ${project.groupId} ${project.artifactId} ${project.version}</message>  <!-- git commit message -->
+	                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+	                <outputDirectory>${project.build.directory}/mvn-repository</outputDirectory> <!-- matches distribution management repository url above -->
+	                <branch>refs/heads/master</branch>                       <!-- remote branch name -->
+	                <includes><include>**/*</include></includes>
+	                <repositoryName>maven-repository</repositoryName>      <!-- github repo name -->
+	                <repositoryOwner>KapIT</repositoryOwner>    <!-- github username  -->
+	                <merge>true</merge>
+	            </configuration>
+	            <executions>
+	              <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+	              <execution>
+	                <goals>
+	                  <goal>site</goal>
+	                </goals>
+	                <phase>deploy</phase>
+	              </execution>
+	            </executions>
+	        </plugin>
+	    </plugins>
+	</build>
 
 </project>
